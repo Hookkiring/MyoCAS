@@ -62,7 +62,7 @@ Recommended folder structure:
 ├── train_A_IA_classifier.py
 ├── split_and_classify_A_IA_regions.py
 ├── weights/
-│   └── myocas_A_IA_classifier_epoch034_acc0.9370.pth
+│   └── MyoCAS_A_IA_classification.pth.pth
 ├── Run_folder/
 │   ├── example_1.avi
 │   └── example_2.avi
@@ -227,7 +227,7 @@ Then set:
 ```python
 MODE = "predict"
 BASIC_PATH = r"path/to/divided_region_videos"
-BEST_MODEL = r"weights/myocas_A_IA_classifier_epoch034_acc0.9370.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
 ```
 
 This mode directly classifies videos already present in `BASIC_PATH`.
@@ -250,7 +250,7 @@ Then set:
 
 ```python
 BASIC_PATH = r"path/to/Run_folder"
-BEST_MODEL = r"weights/myocas_A_IA_classifier_epoch034_acc0.9370.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
 DIVIDED_MODE = "on"
 ```
 
@@ -379,7 +379,7 @@ Example:
 
 ```text
 weights/
-└── myocas_A_IA_classifier_epoch034_acc0.9370.pth
+└── MyoCAS_A_IA_classification.pth.pth
 ```
 
 Before running prediction, set `BEST_MODEL` to the checkpoint path.
@@ -387,7 +387,7 @@ Before running prediction, set `BEST_MODEL` to the checkpoint path.
 Example:
 
 ```python
-BEST_MODEL = r"weights/myocas_A_IA_classifier_epoch034_acc0.9370.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
 ```
 
 ---
@@ -491,7 +491,7 @@ Edit the settings in `train_A_IA_classifier.py`:
 ```python
 MODE = "predict"
 BASIC_PATH = r"path/to/divided_region_videos"
-BEST_MODEL = r"weights/myocas_A_IA_classifier_epoch034_acc0.9370.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
 ```
 
 Then run:
@@ -510,7 +510,7 @@ Edit the settings in `split_and_classify_A_IA_regions.py`:
 
 ```python
 BASIC_PATH = r"path/to/Run_folder"
-BEST_MODEL = r"weights/myocas_A_IA_classifier_epoch034_acc0.9370.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
 
 DIVIDED_MODE = "on"
 
