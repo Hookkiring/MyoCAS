@@ -4,7 +4,7 @@ MyoCAS enables multi-dimensional quantification of myotube contractility and rev
 
 MyoCAS is an image-analysis platform for quantitative analysis of myotube contractility, active-region detection, myotube area, sarcomere organization, and sarcomere maturation patterns from microscopy images and time-lapse videos.
 
-This repository contains the main MyoCAS analysis scripts, model training scripts, example data, trained weight files, and example outputs used for the MyoCAS workflow.
+This repository contains the main MyoCAS analysis scripts, model training scripts, lightweight example data, documentation, and example outputs used for the MyoCAS workflow. Large trained model weight files are provided separately as GitHub Release assets.
 
 This repository is intended for academic, educational, and non-commercial research use. Commercial use is not permitted without prior permission from the author. See the [License](#license) section for details.
 
@@ -79,6 +79,17 @@ The example files are provided for demonstration and reproducibility checks only
 
 ---
 
+## Downloading the prepared MyoCAS package
+
+For reproducible use of MyoCAS, please download the prepared release assets from the GitHub Releases page.
+
+Do not use the GitHub auto-generated "Source code (zip)" file as a replacement for the prepared MyoCAS package, because it may not contain the prepared example folders, example outputs, or trained model weight files.
+
+Please download the following files:
+
+```text
+MyoCAS_repository_files_without_weights.zip
+MyoCAS_trained_weights.zip
 ## Repository structure
 
 ```text
@@ -375,10 +386,11 @@ Python 3.9
 PyTorch 2.0.1 + CUDA 11.8
 Torchvision 0.15.2 + CUDA 11.8
 NumPy 1.26.4
-OpenCV 4.11.0.86
+OpenCV 4.9.0
 ```
 
 Using a virtual environment is recommended.
+The scripts were mainly developed and executed in Visual Studio Code on Windows.
 
 ```bash
 python -m venv .venv
@@ -459,7 +471,7 @@ Install the main dependencies:
 
 ```bash
 pip install numpy==1.26.4
-pip install opencv-python==4.11.0.86
+pip install opencv-python==4.9.0
 pip install matplotlib==3.9.4
 pip install openpyxl==3.1.5
 pip install natsort==8.4.0
@@ -485,7 +497,7 @@ pip install tifffile==2024.8.30
 One-line version:
 
 ```bash
-pip install numpy==1.26.4 opencv-python==4.11.0.86 matplotlib==3.9.4 openpyxl==3.1.5 natsort==8.4.0 pandas==2.2.3 scikit-learn==1.6.1 scipy==1.13.1 plotly==6.0.0 PyWavelets==1.6.0 albumentations==2.0.8 albucore==0.0.24 tqdm==4.67.1 moviepy==1.0.1 imageio==2.37.0 imageio-ffmpeg==0.6.0 pillow==10.4.0 decorator==4.4.2 tensorboard==2.20.0 efficientnet-pytorch==0.7.1 seaborn==0.13.2 tifffile==2024.8.30
+pip install numpy==1.26.4 opencv-python==4.9.0 matplotlib==3.9.4 openpyxl==3.1.5 natsort==8.4.0 pandas==2.2.3 scikit-learn==1.6.1 scipy==1.13.1 plotly==6.0.0 PyWavelets==1.6.0 albumentations==2.0.8 albucore==0.0.24 tqdm==4.67.1 moviepy==1.0.1 imageio==2.37.0 imageio-ffmpeg==0.6.0 pillow==10.4.0 decorator==4.4.2 tensorboard==2.20.0 efficientnet-pytorch==0.7.1 seaborn==0.13.2 tifffile==2024.8.30
 ```
 
 ---
