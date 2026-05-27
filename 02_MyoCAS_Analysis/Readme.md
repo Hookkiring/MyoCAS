@@ -1,6 +1,6 @@
 # MyoCAS: Myotube Contraction Analysis System
 
-MyoCAS is a biomedical image-analysis pipeline for quantitative analysis of myotube contractility from time-lapse microscopy videos.
+MyoCAS is a image-analysis pipeline for quantitative analysis of myotube contractility from time-lapse microscopy videos.
 
 This repository contains two main scripts:
 
@@ -18,6 +18,8 @@ Train_MyoCAS_A_IA_N_Classifier.py
 ## 1. Repository structure
 
 Recommended repository structure:
+
+Note: The `weights/` and `data/` folders may not be included directly in the GitHub source tree. The prepared example folders and trained weight files are provided through the GitHub Release assets. Users can also create these folders manually when using their own data and checkpoints.
 
 ```text
 MyoCAS/
@@ -73,7 +75,7 @@ Python 3.9
 PyTorch 2.0.1 + CUDA 11.8
 Torchvision 0.15.2 + CUDA 11.8
 NumPy 1.26.4
-OpenCV 4.11.0.86
+OpenCV 4.9.0
 ```
 
 Using a virtual environment is recommended.
@@ -222,21 +224,14 @@ Torch: 2.0.1+cu118
 CUDA available: True
 ```
 
-If CUDA is not available, MyoCAS can still run on CPU by setting:
+If CUDA is not available, MyoCAS can still run on CPU.
+
+Recommended CPU setting:
 
 ```python
 GPU_MODE = 'off'
-```
 
-or by keeping:
-
-```python
-GPU_MODE = 'on'
-```
-
-The script will automatically fall back to CPU if CUDA is unavailable.
-
----
+If GPU_MODE = 'on' but CUDA is unavailable, the script attempts to fall back to CPU automatically.
 
 ## 3. Main analysis script
 
@@ -637,7 +632,7 @@ Trains the MyoCAS A/IA/N classifier using the `TRAIN` and `VAL` datasets.
 
 ### `TEST`
 
-Evaluates saved checkpoints using the `TEST` dataset. This mode is useful for comparing multiple trained checkpoints and selecting the best-performing model.
+Evaluates saved checkpoints using the `TEST` dataset. This mode is useful for evaluating saved checkpoints on the independent test dataset after model training and checkpoint selection.
 
 ### `PREDICTION`
 
