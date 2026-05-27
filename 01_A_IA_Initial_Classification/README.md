@@ -59,10 +59,10 @@ Recommended folder structure:
 ```text
 01_A_IA_initial_classification/
 ├── README.md
-├── train_A_IA_classifier.py
-├── split_and_classify_A_IA_regions.py
+├── Split_and_classify_A_IA_regions (Run).py
+├── Train_A_IA_classifier (Train).py
 ├── weights/
-│   └── MyoCAS_A_IA_classification.pth.pth
+│   └── MyoCAS_A_IA_classification.pth
 ├── Run_folder/
 │   ├── example_1.avi
 │   └── example_2.avi
@@ -87,15 +87,15 @@ Recommended folder structure:
 Recommended file names for public GitHub release:
 
 ```text
-train_A_IA_classifier.py
-split_and_classify_A_IA_regions.py
+Split_and_classify_A_IA_regions (Run).py
+Train_A_IA_classifier (Train).py
 ```
 
 ---
 
 ## Files
 
-### `train_A_IA_classifier.py`
+### `Split_and_classify_A_IA_regions (Run).py`
 
 This script trains, tests, and applies the first-stage A/IA classifier.
 
@@ -111,7 +111,7 @@ MODE = "predict"  # Apply the trained classifier to unlabeled videos
 
 ---
 
-### `split_and_classify_A_IA_regions.py`
+### `Train_A_IA_classifier (Train).py`
 
 This script divides original time-lapse microscopy videos into spatial subregions and classifies each subregion as active or inactive using the trained A/IA classifier.
 
@@ -125,7 +125,7 @@ It can be used to divide original videos into 12 or 48 spatial subregions before
 
 `BASIC_PATH` has different meanings depending on the script.
 
-### In `train_A_IA_classifier.py`
+### In `Split_and_classify_A_IA_regions (Run).py`
 
 For training and testing, `BASIC_PATH` should point to `Train_folder`, which directly contains the `Train`, `Val`, and `Test` folders.
 
@@ -150,7 +150,7 @@ Train_folder/
     └── Inactive/
 ```
 
-### In `split_and_classify_A_IA_regions.py`
+### In `Train_A_IA_classifier (Train).py`
 
 `BASIC_PATH` should point to `Run_folder`, which directly contains the original videos for prediction.
 
@@ -208,9 +208,9 @@ The input videos should be subregion-level time-lapse videos.
 
 ## Input data for prediction
 
-### Prediction with `train_A_IA_classifier.py`
+### Prediction with `Split_and_classify_A_IA_regions (Run).py`
 
-For prediction with `train_A_IA_classifier.py`, place already divided subregion-level videos directly in the directory specified by `BASIC_PATH`.
+For prediction with `Split_and_classify_A_IA_regions (Run).py`, place already divided subregion-level videos directly in the directory specified by `BASIC_PATH`.
 
 Example:
 
@@ -227,16 +227,16 @@ Then set:
 ```python
 MODE = "predict"
 BASIC_PATH = r"path/to/divided_region_videos"
-BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth"
 ```
 
 This mode directly classifies videos already present in `BASIC_PATH`.
 
 ---
 
-### Prediction with `split_and_classify_A_IA_regions.py`
+### Prediction with `Train_A_IA_classifier (Train).py`
 
-For prediction with `split_and_classify_A_IA_regions.py`, place original time-lapse microscopy videos directly in `Run_folder`.
+For prediction with `Train_A_IA_classifier (Train).py`, place original time-lapse microscopy videos directly in `Run_folder`.
 
 Example:
 
@@ -250,7 +250,7 @@ Then set:
 
 ```python
 BASIC_PATH = r"path/to/Run_folder"
-BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth"
 DIVIDED_MODE = "on"
 ```
 
@@ -270,7 +270,7 @@ Supported video formats include:
 
 ## Video division
 
-The number of spatial subregions is controlled by `ROWS` and `COLS` in `split_and_classify_A_IA_regions.py`.
+The number of spatial subregions is controlled by `ROWS` and `COLS` in `Train_A_IA_classifier (Train).py`.
 
 Examples:
 
@@ -379,7 +379,7 @@ Example:
 
 ```text
 weights/
-└── MyoCAS_A_IA_classification.pth.pth
+└── MyoCAS_A_IA_classification.pth
 ```
 
 Before running prediction, set `BEST_MODEL` to the checkpoint path.
@@ -387,7 +387,7 @@ Before running prediction, set `BEST_MODEL` to the checkpoint path.
 Example:
 
 ```python
-BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth"
 ```
 
 ---
@@ -435,14 +435,14 @@ prediction_result.csv
 Output meaning:
 
 ```text
-Divided/              : generated only when split_and_classify_A_IA_regions.py is used with DIVIDED_MODE = "on"
+Divided/              : generated only when Train_A_IA_classifier (Train).py is used with DIVIDED_MODE = "on"
 Active Objects/       : videos predicted as active regions
 Inactive Objects/     : videos predicted as inactive regions
 prediction_result.csv : summary of A/IA prediction results
 ```
 
 Note that `Divided/` is not always generated.  
-It is generated only when videos are divided into spatial subregions by `split_and_classify_A_IA_regions.py`.
+It is generated only when videos are divided into spatial subregions by `Train_A_IA_classifier (Train).py`.
 
 ---
 
@@ -450,7 +450,7 @@ It is generated only when videos are divided into spatial subregions by `split_a
 
 ### 1. Train the A/IA classifier
 
-Edit the settings in `train_A_IA_classifier.py`:
+Edit the settings in `Split_and_classify_A_IA_regions (Run).py`:
 
 ```python
 MODE = "train"
@@ -460,14 +460,14 @@ BASIC_PATH = r"path/to/Train_folder"
 Then run:
 
 ```bash
-python train_A_IA_classifier.py
+python Split_and_classify_A_IA_regions (Run).py
 ```
 
 ---
 
 ### 2. Test saved checkpoints
 
-Edit the settings in `train_A_IA_classifier.py`:
+Edit the settings in `Split_and_classify_A_IA_regions (Run).py`:
 
 ```python
 MODE = "test"
@@ -477,7 +477,7 @@ BASIC_PATH = r"path/to/Train_folder"
 Then run:
 
 ```bash
-python train_A_IA_classifier.py
+python Split_and_classify_A_IA_regions (Run).py
 ```
 
 In test mode, all `.pth` checkpoint files in the weight directory are evaluated on the test dataset.
@@ -486,18 +486,18 @@ In test mode, all `.pth` checkpoint files in the weight directory are evaluated 
 
 ### 3. Predict A/IA labels for already divided videos
 
-Edit the settings in `train_A_IA_classifier.py`:
+Edit the settings in `Split_and_classify_A_IA_regions (Run).py`:
 
 ```python
 MODE = "predict"
 BASIC_PATH = r"path/to/divided_region_videos"
-BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth"
 ```
 
 Then run:
 
 ```bash
-python train_A_IA_classifier.py
+python Split_and_classify_A_IA_regions (Run).py
 ```
 
 This mode directly classifies videos already present in `BASIC_PATH`.
@@ -506,11 +506,11 @@ This mode directly classifies videos already present in `BASIC_PATH`.
 
 ### 4. Divide original videos and classify subregions
 
-Edit the settings in `split_and_classify_A_IA_regions.py`:
+Edit the settings in `Train_A_IA_classifier (Train).py`:
 
 ```python
 BASIC_PATH = r"path/to/Run_folder"
-BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth.pth"
+BEST_MODEL = r"weights/MyoCAS_A_IA_classification.pth"
 
 DIVIDED_MODE = "on"
 
@@ -521,7 +521,7 @@ COLS = 4
 Then run:
 
 ```bash
-python split_and_classify_A_IA_regions.py
+python Train_A_IA_classifier (Train).py
 ```
 
 This mode divides each original video into spatial subregions and then classifies each subregion as active or inactive.
