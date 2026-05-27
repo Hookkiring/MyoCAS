@@ -87,10 +87,19 @@ Do not use the GitHub auto-generated "Source code (zip)" file as a replacement f
 
 Please download the following files:
 
+Please download the following files:
+
 ```text
 MyoCAS_repository_files_without_weights.zip
 MyoCAS_trained_weights.zip
-## Repository structure
+
+After downloading:
+
+1. Extract MyoCAS_repository_files_without_weights.zip.
+2. Extract MyoCAS_trained_weights.zip.
+3. Place each .pth file in the corresponding module folder or weights/ folder according to the module-specific README.
+
+The trained weight files are not committed directly to the main repository because of file size limitations.
 
 ```text
 MyoCAS/
@@ -471,7 +480,7 @@ Install the main dependencies:
 
 ```bash
 pip install numpy==1.26.4
-pip install opencv-python==4.9.0
+pip install opencv-python==4.9.0.80
 pip install matplotlib==3.9.4
 pip install openpyxl==3.1.5
 pip install natsort==8.4.0
@@ -497,7 +506,7 @@ pip install tifffile==2024.8.30
 One-line version:
 
 ```bash
-pip install numpy==1.26.4 opencv-python==4.9.0 matplotlib==3.9.4 openpyxl==3.1.5 natsort==8.4.0 pandas==2.2.3 scikit-learn==1.6.1 scipy==1.13.1 plotly==6.0.0 PyWavelets==1.6.0 albumentations==2.0.8 albucore==0.0.24 tqdm==4.67.1 moviepy==1.0.1 imageio==2.37.0 imageio-ffmpeg==0.6.0 pillow==10.4.0 decorator==4.4.2 tensorboard==2.20.0 efficientnet-pytorch==0.7.1 seaborn==0.13.2 tifffile==2024.8.30
+pip install numpy==1.26.4 opencv-python==4.9.0.80 matplotlib==3.9.4 openpyxl==3.1.5 natsort==8.4.0 pandas==2.2.3 scikit-learn==1.6.1 scipy==1.13.1 plotly==6.0.0 PyWavelets==1.6.0 albumentations==2.0.8 albucore==0.0.24 tqdm==4.67.1 moviepy==1.0.1 imageio==2.37.0 imageio-ffmpeg==0.6.0 pillow==10.4.0 decorator==4.4.2 tensorboard==2.20.0 efficientnet-pytorch==0.7.1 seaborn==0.13.2 tifffile==2024.8.30
 ```
 
 ---
