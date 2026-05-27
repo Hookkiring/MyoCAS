@@ -2,7 +2,7 @@
 
 MyoCAS enables multi-dimensional quantification of myotube contractility and reveals structure–function coupling in vitro.
 
-MyoCAS is a biomedical image-analysis platform for quantitative analysis of myotube contractility, active-region detection, myotube area, sarcomere organization, and sarcomere maturation patterns from microscopy images and time-lapse videos.
+MyoCAS is an image-analysis platform for quantitative analysis of myotube contractility, active-region detection, myotube area, sarcomere organization, and sarcomere maturation patterns from microscopy images and time-lapse videos.
 
 This repository contains the main MyoCAS analysis scripts, model training scripts, example data, trained weight files, and example outputs used for the MyoCAS workflow.
 
