@@ -29,6 +29,8 @@ The trained sarcomere segmentation model can be used in the downstream sarcomere
 
 Recommended folder structure:
 
+Note: The `Train_folder/` directory and example datasets may not be included directly in the GitHub source tree. Prepared example folders, if provided, are included in the GitHub Release assets. Users can also create the same folder structure manually when using their own training images and masks.
+
 ```text
 03_HRNet_DeepLabV3_Segmentation_Training/
 ├── README.md
@@ -395,7 +397,7 @@ EPOCH = 50
 ### CUDA device
 
 ```python
-DEVICE_ID = "1"
+DEVICE_ID = "0"
 ```
 
 If CUDA is available, the script uses:
